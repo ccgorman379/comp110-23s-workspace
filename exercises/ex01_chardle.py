@@ -31,10 +31,10 @@ if(character == word[4]):
         number_matching_characters = number_matching_characters + 1
 
 if(number_matching_characters == 1):
-        print(str(number_matching_characters) + " instance of " + character + " in " + word)
+        print(str(number_matching_characters) + " instance of " + character + " found in " + word)
 
 if(number_matching_characters > 1):
-        print(str(number_matching_characters) + " instances of " + character + " in " + word)
+        print(str(number_matching_characters) + " instances of " + character + " found in " + word)
 
 if(number_matching_characters == 0):
-        print("No instances of " + character + " in " + word)
+        print("No instances of " + character + " found in " + word)
