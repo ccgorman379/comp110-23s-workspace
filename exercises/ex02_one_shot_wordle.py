@@ -9,7 +9,7 @@ YELLOW_BOX: str = "\U0001F7E8"
 guess_idx: int = 0
 result: str = ""
 while len(guess) != len(SECRET):
-    guess = input("That was not " + str(len(SECRET)) +  " letters! Try again: ")
+    guess = input("That was not " + str(len(SECRET)) + " letters! Try again: ")
 if (len(guess)) == len(SECRET):
     while guess_idx < len(SECRET):
         if guess[guess_idx] == SECRET[guess_idx]:
@@ -17,12 +17,12 @@ if (len(guess)) == len(SECRET):
         else:
             alt_location = False
             alt_idx: int = 0
-            while not(alt_location == True) and (alt_idx < len(SECRET)):
+            while not (alt_location is True) and (alt_idx < len(SECRET)):
                 if SECRET[alt_idx] == guess[guess_idx]:
                     alt_location = True
                 else:
                     alt_idx = alt_idx + 1
-            if alt_location == True:
+            if alt_location is True:
                 result = result + YELLOW_BOX
             else:
                 result = result + WHITE_BOX
