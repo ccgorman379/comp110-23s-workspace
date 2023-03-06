@@ -1,6 +1,7 @@
-"""EX05 - list Utility Functions - Continuing to build utility functions and writing unit tests."""
+"""EX05 - list Utility Functions - Build utility functions."""
 
 __author__ = "730556514"
+
 
 def only_evens(given_list: list[int]) -> list[int]:
     """Given list, returns a new list with only even elements of given list."""
@@ -24,6 +25,12 @@ def concat(given_list_1: list[int], given_list_2: list[int]) -> list[int]:
 def sub(given_list: list[int], start_idx: int, end_idx: int) -> list[int]:
     """Given list and two ints for indices, returns a new list that is a subset of the given list between the given idices."""
     new_list: list[int] = []
-    for idx in range(start_idx, end_idx -1):
-        new_list.append(given_list(idx))
+    if start_idx < 0:
+        start_idx = 0
+    if end_idx > len(given_list):
+        end_idx = len(given_list)
+    if len(given_list) == 0 or start_idx >= len(given_list) or end_idx <= 0:
+        return new_list
+    for idx in range(start_idx, end_idx):
+        new_list.append(given_list[idx])
     return new_list
