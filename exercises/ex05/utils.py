@@ -10,6 +10,7 @@ def only_evens(given_list: list[int]) -> list[int]:
             new_list.append(value)
     return new_list
 
+
 def concat(given_list_1: list[int], given_list_2: list[int]) -> list[int]:
     """Given two lists, returns a new lists with all elements of first list followed by all elements of second list."""
     new_list: list[int] = []
@@ -18,6 +19,7 @@ def concat(given_list_1: list[int], given_list_2: list[int]) -> list[int]:
     for value in given_list_2:
         new_list.append(value)
     return new_list
+
 
 def sub(given_list: list[int], start_idx: int, end_idx: int) -> list[int]:
     """Given list and two ints for indices, returns a new list that is a subset of the given list between the given idices."""
