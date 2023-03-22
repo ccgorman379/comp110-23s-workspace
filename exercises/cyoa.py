@@ -1,37 +1,93 @@
-"""EX06 - Choose Your Own Adventure Assignment - Which Archeron Sister Are You?"""
+"""EX06 - Choose Your Own Adventure Assignment - The Teller's Test"""
 
 __author__ = "730556314"
 
 points: int = 0
 player: str = ""
+path: int = 0
 
+from random import randint
 
 def greet() -> None:
-    print("Hello, human, and welcome to the faerie realm of Pyrthian!")
-    print("My name is Feyre Archeron, High Lady of the Night Court, and I have the pleasure of assisting you today.")
-    print("I heard you wanted to see which of the famed Acheron sisters you are most like, so we shall do just that!")
-    global player
-    player: str = input("Before we begin, please, tell me your name: ")
-    print(f"Pleasure to meet you {player}!")
-    print("Now, let's begin!")
+    """Greeting and beginning of the game sequence."""
+    print("Hello, traveller, and welcome to the Teller's Tent.")
+    print("My name is Elain, and I am a seer in this realm.")
+    print("It seems you have sought me out to begin your own seer training, and I am more than happy to assist you in your quest for knowledge.")
 
 
+def test(test_length: int) -> int:
+    """Teller's Test, can be one or two numbers at a time."""
+    global points
+    another_round: bool = True
+    while another_round is True:
+        if test_length == 1:
+            number: int = randint(1,9)
+            guess: int = input(f"Alright, {player}, I am thinking of one number from 1 to 9. What is your prediction?")
+            if guess == number:
+                print(f"Excellent, {player}! Your training is coming along quite nicely.")
+                play_again_1: str = input(f"Would you like to try again, {player}? Yes or No?")
+                if play_again_1 == "Yes":
+                    another_round is True
+                else:
+                    another_round is False
+        if test_length == 2:
+            number_1: int = randint(1,9)
+            number_2: int = randint(1,9)
+            guess_1: int = input(f"Alright, {player}, I am thinking of two numbers from 1 to 9. What is your prediction for the first number?")
+            guess_2: int = input(f"And your prediction for the second number?")
+            if guess_1 == number_1 and guess_2 == number_2:
+                print(f"Masterful work, {player}. You predicted both numbers correctly!")
+            else:
+                if guess_1 == number_1 or guess_2 == number_2:
+                    print(f"Satisfactory job, {player}. You predicted one number correctly.")
+                else:
+                    print(f"Good effort, {player}, but you did not predict either number correctly. Worry not, these things take decades of practice.")
+            play_again_2: str = input(f"Would you like to try again, {player}? Yes or No?")
+            if play_again_2 == "Yes":
+                another_round is True
+            else:
+                another_round is False
+        if another_round is False:
+            return points
 
-
-
+                
+               
+     
 
 
 def main() -> None:
+    """Main Game Function."""
     __name__ = "__main__"
+    global player
     global points
     greet()
+    player: str = input("Before we begin, please, tell me your name traveller: ")
+    print(f"Pleasure to meet you {player}!")
+    print("Now, let's begin!")
     print(f"Alright {player}, time to choose your path.")
-    path: int = input(f"1. Leave Prythian Now\n2. Learn More About Pyrithian\n3. Proceed to the Archeron Sister Quiz")
+    path: int = input(f"1. Leave the Teller's Tent\n2. Learn More About the Test\n3. Proceed to the Teller's Test")
     if path == 1:
-        print(f"Hope you will come back to visit soon, {player}!")    
+        print(f"Hope you will come back to visit soon, {player}!")
+        print(f"You have left the Teller's Tent with {points} correct guesses, a considerable feat.")
         quit()
-
-
+    if path == 2:
+        print("My test will serve the purposes of a preliminary training for your seer abilities.")
+        print("We will begin with a simple test: predicting numbers.")
+        print("Though it may seem futile, a great seer must always begin with the basics of filtering out the noise of the world, focusing on a single task, simple as it may be.")
+        print("I will think of a number from 1 to 9, and you shall simply make your prediction, providing it when promted.")
+        print("Once you begin the test, you can choose to predict one or two numbers at a time.")
+        print("Don't worry, traveller, I will keep track of how many correct guesses you get, letting you know along the way.")
+        menu_return: str = input(f"Ready to choose your path, {player}? Yes or No?")
+        while menu_return != "Yes":
+                print(f"Please don't waste my time, {player}. I am far older than you could imagine and know the precious value of time.")
+                menu_return: str = input(f"Ready to choose your path, {player}? Yes or No?")
+        if menu_return == "Yes":
+            print(f"Alright {player}, time to choose your path.")
+            path: int = input(f"1. Leave the Teller's Tent\n2. Learn More About the Test\n3. Proceed to the Teller's Test")
+    if path == 3:
+        test_length: int = input(f"How many numbers would you like to guess this time, {player}? 1 or 2?")
+        test(test_length)
+         
 
 if __name__ == "__main__":
     main()
