@@ -9,6 +9,8 @@ def invert(given_dict: dict[str, str]) -> dict[str, str]:
     for item in given_dict:
         result_key: str = given_dict[item]
         result_value: str = item
+        if result_key in result:
+            raise KeyError("Duplicate keys detected.")
         result[result_key] = result_value
     return result
 
