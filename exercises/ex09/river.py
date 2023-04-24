@@ -5,6 +5,8 @@ __author__ = "730556314"
 from exercises.ex09.fish import Fish
 from exercises.ex09.bear import Bear
 
+from fish import Fish
+from bear import Bear
 
 class River:
     """The lovely river itself."""
@@ -24,14 +26,6 @@ class River:
         for x in range(0, num_bears):
             self.bears.append(Bear())
 
-    def remove_fish(self, amount: int):
-        """Removing fish from river."""
-        idx: int = 0
-        while idx < amount:
-            self.fish.pop(0)
-            idx += 1
-        return None
-
     def bears_eating(self):
         """Bears eating fish."""
         for bear in self.bears:
@@ -41,26 +35,9 @@ class River:
         return None
     
     def check_hunger(self):
-        """Seeing if there are any starving bears."""
-        bear_survivors: list[Bear] = []
-        for bear in self.bears:
-            if bear.hunger_score >= 0:
-                bear_survivors.append(bear)
-        self.bears = bear_survivors
         return None
                 
     def check_ages(self):
-        """Checking ages of the bears and fish at river."""
-        fish_survivors: list[Fish] = []
-        bear_survivors: list[Bear] = []
-        for each_fish in self.fish:
-            if each_fish.age < 4:
-                fish_survivors.append(each_fish)
-        for bear in self.bears:
-            if bear.age < 6:
-                bear_survivors.append(bear)
-        self.fish = fish_survivors
-        self.bears = bear_survivors
         return None
         
     def repopulate_fish(self):
@@ -85,7 +62,6 @@ class River:
         return None
             
     def one_river_day(self):
-        """One day passes at the river for bears and fish."""
         # Increase day by 1
         self.day += 1
         # Simulate one day for all Bears
